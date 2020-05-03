@@ -70,7 +70,11 @@ yum makecache
 
 yum update
 
-yum install -y kubelet kubeadm kubectl –y
+yum install -y kubelet kubeadm kubectl 
+
+or
+
+dnf install  kubelet kubeadm kubectl
 
 source <(kubectl completion bash)
 
@@ -161,6 +165,27 @@ If you want to create single node cluster with master & worker nides in one then
 In order to allow PODs to be created on kubernetes master, use below command
 
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
+
+To run any *.yaml file please follow below command
+
+kubectl apply -f pod.yaml
+
+Perisistent Storage:-
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/
+
+kubectl apply -f pv-volume.yaml
+
+kubectl get pv task-pv-volume
+
+kubectl apply -f pv-claim.yaml
+
+kubectl get pv task-pv-volume
+
+kubectl apply -f static-web.yaml
+
+kubectl get pod task-pv-pod
+
 
 
 
