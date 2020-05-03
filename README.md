@@ -97,6 +97,8 @@ $ kubeadm init
 
 Or
 
+kubeadm init --ignore-preflight-errors=all
+
 if you have multiple Kubeadm master then specify IP o the master & fire below command
 
 $ kubeadm init --apiserver-advertise-address 192.168.1.8 --ignore-preflight-errors=all
