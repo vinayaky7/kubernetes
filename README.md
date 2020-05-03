@@ -40,27 +40,42 @@ Error:
 
 yum install -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 
-Reference Link:- 
-https://vexpose.blog/2020/04/02/installation-of-docker-fails-on-centos-8-with-error-package-containerd-io-1-2-10-3-2-el7-x86-64-is-excluded/
-https://www.tecmint.com/install-a-kubernetes-cluster-on-centos-8/
+Reference Link:-
+
+https://vexpose.blog/2020/04/02/installation-of-docker-fails-on-centos-8-with-error-package-containerd-io-1-2-10-3-2-el7-x86-64-is-excluded
+
+https://www.tecmint.com/install-a-kubernetes-cluster-on-centos-8
 
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+
 [kubernetes]
+
 name=Kubernetes
+
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+
 enabled=1
+
 gpgcheck=1
+
 repo_gpgcheck=1
+
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+
 https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
 EOF
 
 yum makecache
 
 yum update
+
 yum install -y kubelet kubeadm kubectl –y
+
 source <(kubectl completion bash)
+
 kubectl completion bash > /etc/bash_completion.d/kubectl
+
 kubeadm config images pull
 
 This will install apps as per below latest version available at the time of installation.
@@ -69,8 +84,10 @@ This will install apps as per below latest version available at the time of inst
 - kubectl (1.9.0-00).
 - kubelet (1.9.0-00).
 - kubernetes-cni (0.6.0-00).
+- 
 Follow above steps on all VMs irrespective of their status as ‘Nodes’ or ‘Master’.
-To create a kube cluster Run,
+
+To create a kube cluster Run
 
 $ kubeadm init
 Or
@@ -82,6 +99,7 @@ IP address in above command is the ip address of Kubemaster server that you want
 This will download and initiate kuberadm container and other apps 
 
 You will below message
+
 =====================
 Your Kubernetes control-plane has initialized successfully!
 
