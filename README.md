@@ -90,17 +90,21 @@ Follow above steps on all VMs irrespective of their status as ‘Nodes’ or ‘
 To create a kube cluster Run
 
 $ kubeadm init
+
 Or
+
 if you have multiple Kubeadm master then specify IP o the master & fire below command
 
 $ kubeadm init --apiserver-advertise-address 192.168.1.8 --ignore-preflight-errors=all
 
 IP address in above command is the ip address of Kubemaster server that you want to advertise
+
 This will download and initiate kuberadm container and other apps 
 
 You will below message
 
 =====================
+
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
@@ -113,42 +117,49 @@ You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
-Then you can join any number of worker nodes by running the following on each as root:
+Then you can join any number of worker nodes by running the following on each as root
 
-kubeadm join 172.31.44.132:6443 --token nvycip.6cvxedsr3r3n9x1x \
-    --discovery-token-ca-cert-hash sha256:0707864a192e9f4a5773fccdc9514c1ed48c169b13a198abe346cc7a9c0981b4
+kubeadm join 172.31.44.132:6443 --token nvycip.6cvxedsr3r3n9x1x --discovery-token-ca-cert-hash sha256:0707864a192e9f4a5773fccdc9514c1ed48c169b13a198abe346cc7a9c0981b4
+    
 =================
 
 We use the command to start network router service (POD) using below command
+
 $ kubectl apply --filename https://git.io/weave-kube-1.6
 
 Or
 
 $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
-Now on the VMs that are going to be the K8S nodes, run below command on the node that we want to add..
+Now on the VMs that are going to be the K8S nodes, run below command on the node that we want to add
+
 $ kubeadm join --token fc3846.48223acdabb2ae31 <master-ipaddress>:6443 --discovery-token-ca-cert-hash sha256:a905fc15814645e8a1cb3a18234feea5206263db820889d0b773cc1cd7751a0e
 
 If the Kubeadm join command is not available, we can create anew token it with below command
+
 $ sudo kubeadm token create --print-join-command
 
-Or, below can retrieve existing token
+Or below can retrieve existing token
+
 $ kubeadm join --discovery-token-unsafe-skip-ca-verification --token=`kubeadm token list` 172.17.0.92:6443
 
 Also we can list all available and valid tokens using command
+
 $ kubeadm token list
 
 Once the pods are joined we can check the same on the Kubernetes master
 
 root@kube-master:#kubectl get nodes
-NAME STATUS ROLES AGE VERSION
-kube-master Ready master 21m v1.9.0
-kubenode-1 Ready <none> 2m v1.9.0
-kubenode-2 Ready <none> 39s v1.9.0
+
+-NAME STATUS ROLES AGE VERSION
+-kube-master Ready master 21m v1.9.0
+-kubenode-1 Ready <none> 2m v1.9.0
+-kubenode-2 Ready <none> 39s v1.9.0
 
 If you want to create single node cluster with master & worker nides in one then follow below comand 
 
 In order to allow PODs to be created on kubernetes master, use below command
+
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 
