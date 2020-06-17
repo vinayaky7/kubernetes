@@ -171,7 +171,9 @@ root@kube-master:# kubectl get nodes
 
 -kubenode-2 Ready <none> 39s v1.9.0
 
-If you want to create single node cluster with master & worker nides in one then follow below comand 
+### If you want to create single node cluster with master & worker nodes in one then follow below comand 
+
+OR
 
 ### In order to create PODs on kubernetes master in absence of worker nodes, use can use K8s master to do so with below command
 
@@ -179,7 +181,7 @@ $ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 To run any *.yaml file please follow below command
 
-kubectl apply -f pod.yaml
+kubectl apply -f *.yaml
 
 Perisistent Storage:-
 
