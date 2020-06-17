@@ -8,15 +8,13 @@ yum install -y yum-utils
 
 yum install -y device-mapper-persistent-data lvm2
 
-yum-config-manager --enable rhel-8-server-extras-rpms
-
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 or
 
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
-yum makecache fast or yum makecache 
+yum makecache 
 
 # Install the latest version of Docker CE on RHEL:
 
