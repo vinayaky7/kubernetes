@@ -161,11 +161,14 @@ $ kubeadm token list
 
 Once the pods are joined we can check the same on the Kubernetes master
 
-root@kube-master:#kubectl get nodes
+root@kube-master:# kubectl get nodes
 
 -NAME STATUS ROLES AGE VERSION
+
 -kube-master Ready master 21m v1.9.0
+
 -kubenode-1 Ready <none> 2m v1.9.0
+
 -kubenode-2 Ready <none> 39s v1.9.0
 
 If you want to create single node cluster with master & worker nides in one then follow below comand 
