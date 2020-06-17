@@ -105,11 +105,11 @@ Or
 
 kubeadm init --ignore-preflight-errors=all
 
-if you have multiple Kubeadm master then specify IP of the master & fire below command
+if you have multiple network interfaces & use any one of them speciically, then specify IP of the interface & fire below command
 
 $ kubeadm init --apiserver-advertise-address 192.168.1.8 --ignore-preflight-errors=all
 
-IP address in above command is the ip address of Kubemaster server that you want to advertise
+IP address in above command is the ip address of Kubemaster master of one of the interfaces that you wish to use & server that you want to advertise
 
 This will download and initiate kuberadm container and other apps 
 
@@ -155,15 +155,7 @@ Now on the VMs that are going to be the K8S nodes, run below command on the node
 
 $ kubeadm join --token fc3846.48223acdabb2ae31 <master-ipaddress>:6443 --discovery-token-ca-cert-hash sha256:a905fc15814645e8a1cb3a18234feea5206263db820889d0b773cc1cd7751a0e
 
-If the Kubeadm join command is not available, we can create anew token it with below command
-
-$ sudo kubeadm token create --print-join-command
-
-Or below can retrieve existing token
-
-$ kubeadm join --discovery-token-unsafe-skip-ca-verification --token=`kubeadm token list` 172.17.0.92:6443
-
-Also we can list all available and valid tokens using command
+Also we can list all available and valid tokens using command in the Master
 
 $ kubeadm token list
 
