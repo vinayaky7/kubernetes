@@ -22,9 +22,6 @@ yum makecache fast or yum makecache
 
 yum -y install docker-ce
 
-#Start Docker:
-systemctl start docker
-
 Error: -
 Error:
  Problem: package docker-ce-3:19.03.8-3.el7.x86_64 requires containerd.io >= 1.2.2-3, but none of the providers can be installed
@@ -38,6 +35,8 @@ Error:
   - package containerd.io-1.2.6-3.3.el7.x86_64 is excluded
 (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
 
+Solution:-
+
 yum install -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 
 Reference Link:-
@@ -46,7 +45,14 @@ https://vexpose.blog/2020/04/02/installation-of-docker-fails-on-centos-8-with-er
 
 https://www.tecmint.com/install-a-kubernetes-cluster-on-centos-8
 
+yum -y install docker-ce
+
+systemctl start docker
+
+docker -v
+
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+
 
 [kubernetes]
 
@@ -65,6 +71,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
 https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 
 EOF
+
 
 yum makecache
 
@@ -91,7 +98,19 @@ This will install apps as per below latest version available at the time of inst
 - 
 Follow above steps on all VMs irrespective of their status as ‘Nodes’ or ‘Master’.
 
-To create a kube cluster Run
+Before initialozing Kubernetes Cluster we need to install third party network connector & use it. 
+
+We use the command to start network router service (POD) using below command
+
+$ kubectl apply --filename https://git.io/weave-kube-1.6
+
+Or
+
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+Abobe command will initialize pod networking for kubernetes cluster.
+
+To initialize kubetnetes cluster run below command
 
 $ kubeadm init
 
@@ -99,7 +118,7 @@ Or
 
 kubeadm init --ignore-preflight-errors=all
 
-if you have multiple Kubeadm master then specify IP o the master & fire below command
+if you have multiple Kubeadm master then specify IP of the master & fire below command
 
 $ kubeadm init --apiserver-advertise-address 192.168.1.8 --ignore-preflight-errors=all
 
@@ -129,13 +148,7 @@ kubeadm join 172.31.44.132:6443 --token nvycip.6cvxedsr3r3n9x1x --discovery-toke
     
 =================
 
-We use the command to start network router service (POD) using below command
 
-$ kubectl apply --filename https://git.io/weave-kube-1.6
-
-Or
-
-$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 Now on the VMs that are going to be the K8S nodes, run below command on the node that we want to add
 
