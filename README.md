@@ -73,7 +73,7 @@ EOF
 
 yum makecache
 
-yum update
+yum update -y
 
 yum install -y kubelet kubeadm kubectl 
 
