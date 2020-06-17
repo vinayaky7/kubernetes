@@ -49,7 +49,7 @@ systemctl start docker
 
 docker -v
 
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+vi /etc/yum.repos.d/kubernetes.repo
 
 
 [kubernetes]
