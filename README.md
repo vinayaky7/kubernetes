@@ -86,7 +86,7 @@ kubectl completion bash > /etc/bash_completion.d/kubectl
 kubeadm config images pull
 
 This will install apps as per below latest version available at the time of installation.
-- docker.io (1.13.1-0ubuntu1~16.04.2).
+- Docker version 19.03.11, build 42e35e61f3
 - kubeadm (1.9.0-00).
 - kubectl (1.9.0-00).
 - kubelet (1.9.0-00).
