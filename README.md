@@ -51,6 +51,7 @@ docker -v
 
 vi /etc/yum.repos.d/kubernetes.repo
 
+===========================================
 
 [kubernetes]
 
@@ -67,7 +68,7 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 
 
-
+==================================
 
 yum makecache -y
 
@@ -94,17 +95,7 @@ This will install apps as per below latest version available at the time of inst
 - 
 Follow above steps on all VMs irrespective of their status as ‘Nodes’ or ‘Master’.
 
-Before initialozing Kubernetes Cluster we need to install third party network connector & use it. 
-
-We use the command to start network router service (POD) using below command
-
-$ kubectl apply --filename https://git.io/weave-kube-1.6
-
-Or
-
-$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
-
-Abobe command will initialize pod networking for kubernetes cluster.
+===================================================
 
 To initialize kubetnetes cluster run below command
 
@@ -144,7 +135,17 @@ kubeadm join 172.31.44.132:6443 --token nvycip.6cvxedsr3r3n9x1x --discovery-toke
     
 =================
 
+We will need to install third party Network connector for Kubernetes Networking
 
+We will use below command to start network router service (POD) 
+
+$ kubectl apply --filename https://git.io/weave-kube-1.6
+
+Or
+
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+Above command will initialize pod networking for kubernetes cluster.
 
 Now on the VMs that are going to be the K8S nodes, run below command on the node that we want to add
 
