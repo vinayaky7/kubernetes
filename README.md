@@ -173,7 +173,7 @@ root@kube-master:# kubectl get nodes
 
 If you want to create single node cluster with master & worker nides in one then follow below comand 
 
-In order to allow PODs to be created on kubernetes master, use below command
+### In order to create PODs on kubernetes master in absence of worker nodes, use can use K8s master to do so with below command
 
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 
