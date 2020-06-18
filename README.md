@@ -17,6 +17,10 @@ This project is created for learning Kubernetes during COVID PANDEMIC
 
 Steps to install kubelet kubeadm kubectl on RHEL 8
 
+Note:- Please follow below link & open all the ports in your Firewall.
+
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+
 yum install -y yum-utils 
 
 yum install -y device-mapper-persistent-data lvm2
