@@ -1,6 +1,19 @@
-# kubernetes-2020
+# Installation & Configuration of kubernetes Cluster 
 
-This project is created for learning Kubernetes in 2020
+## We have created 1 Master Node & 2 Worker Node on AWS EC2 with RHEL 8 OS
+
+### Requirement:-
+
+**2GB RAM 2 CPU
+
+Full Network Network Connectivity
+
+DNS Server**
+
+
+We will be installing Kubernetes Cluster with **Kubdeadm**
+
+This project is created for learning Kubernetes during COVID PANDEMIC
 
 Steps to install kubelet kubeadm kubectl on RHEL 8
 
