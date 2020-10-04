@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: mywebsite
+    type: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          volumeMounts:
+            - name: efs-pvc
+              mountPath: "/usr/share/nginx/html"
+      volumes:
+        - name: efs-pvc
+          persistentVolumeClaim:
+            claimName: efs
+  selector:
+    matchLabels:
+      app: myapp

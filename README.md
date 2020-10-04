@@ -1,4 +1,17 @@
-# Installation & Configuration of kubernetes Cluster 
+# Please follow below links to conigure Kubernetes cluster on AWS EKS(Elastic Kubernetes Service)
+
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
+
+## Persistent Storage
+
+https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
+
+## Dashboard:-
+
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
+
+
+# Installation & Configuration of kubernetes Cluster manually on EC2
 
 ## We have created 1 Master Node & 2 Worker Node on AWS EC2 with RHEL 8 OS
 
@@ -30,6 +43,10 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 or
 
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+
+**Update the docker-ce repo file**
+
+https://forums.docker.com/t/docker-ce-stable-x86-64-repo-not-available-https-error-404-not-found-https-download-docker-com-linux-centos-7server-x86-64-stable-repodata-repomd-xml/98965/5
 
 yum makecache 
 
