@@ -1,4 +1,17 @@
-# Installation & Configuration of kubernetes Cluster 
+# Please follow below links to conigure Kubernetes cluster on AWS EKS(Elastic Kubernetes Service)
+
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
+
+## Persistent Storage
+
+https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
+
+## Dashboard:-
+
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
+
+
+# Installation & Configuration of kubernetes Cluster manually on EC2
 
 ## We have created 1 Master Node & 2 Worker Node on AWS EC2 with RHEL 8 OS
 
