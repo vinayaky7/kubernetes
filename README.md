@@ -2,6 +2,10 @@
 
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
 
+# NodeIAMRole
+
+https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html
+
 ## Persistent Storage
 
 https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
