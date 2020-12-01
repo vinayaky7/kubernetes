@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend
+  name: myreplicatset
   labels:
-    app: mywebsite
+    app: myapp
     tier: frontend
 spec:
   replicas: 3
   template:
     metadata:
-      name: nginx
+      name: mywebsite
       labels:
         app: myapp
     spec:

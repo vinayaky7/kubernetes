@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: frontend
   labels:
-    app: mywebsite
+    app: myapp
     tier: frontend
 spec:
   replicas: 3
   template:
     metadata:
-      name: myapp-pod
+      name: mywebserver
       labels:
         app: myapp
     spec:
       containers:
-        - name: nginx
-          image: nginx
+        - name: mywebserver
+          image: 587893864223.dkr.ecr.us-east-2.amazonaws.com/radical:1.1.0
   selector:
     matchLabels:
       app: myapp

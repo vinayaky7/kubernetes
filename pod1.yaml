@@ -3,8 +3,10 @@ kind: Pod
 metadata:
   name: apache
   labels:
-    app: myapp
+    app: myapp1
+    type: frontend
+
 spec:
   containers:
     - name: myapache
-      image: httpd
+      image: aamirs/aamirweb
