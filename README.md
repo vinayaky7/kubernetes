@@ -1,6 +1,10 @@
-# Please follow below links to conigure Kubernetes cluster on AWS EKS(Elastic Kubernetes Service)
+# Please follow below links to configure Kubernetes cluster on AWS EKS(Elastic Kubernetes Service)
 
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html
+
+# Cluster Service role
+
+https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html
 
 # NodeIAMRole
 
