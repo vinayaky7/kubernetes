@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: efs-pvc
           persistentVolumeClaim:
-            claimName: efs
+            claimName: efs-claim
   selector:
     matchLabels:
       app: myapp
