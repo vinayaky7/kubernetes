@@ -18,6 +18,13 @@ https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
 
 https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
 
+## Integrate deployment with Jenkins
+
+Please follow below link to install Amazon EC2 plugin & add below mentioned credentials
+
+https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-jenkins.html
+
+Follow this repo & branch dev-maven-ansible-docker-K8s for the JenkinsFile
 
 # Installation & Configuration of kubernetes Cluster manually on EC2
 
