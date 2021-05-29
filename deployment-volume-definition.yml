@@ -3,24 +3,25 @@ kind: Deployment
 metadata:
   name: frontend
   labels:
-    app: mywebsite
+    app: myapp
     type: frontend
 spec:
   replicas: 3
   template:
     metadata:
-      name: myapp-pod
+      name: myreplicaset
       labels:
         app: myapp
     spec:
       containers:
-        - name: nginx
-          image: nginx
+        - name: mywebserver
+          image: aamirs/myweb:v1.0
+          command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
           volumeMounts:
-            - name: efs-pvc
-              mountPath: "/usr/share/nginx/html"
+            - name: efs-pv
+              mountPath: "/var/www/html"
       volumes:
-        - name: efs-pvc
+        - name: efs-pv
           persistentVolumeClaim:
             claimName: efs-claim
   selector:
