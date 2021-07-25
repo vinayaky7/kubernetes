@@ -15,7 +15,10 @@ spec:
     spec:
       containers:
         - name: mywebserver
-          image: 587893864223.dkr.ecr.us-east-2.amazonaws.com/radical:1.1.0
+          image: aamirs/myweb:v1.0
+          command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
+         
+          
   selector:
     matchLabels:
       app: myapp
