@@ -6,8 +6,12 @@ metadata:
     app: myapp
 spec:
   containers:
-    - name: myapache
-      image: aamirs/aamirweb
+    - name: mywebserver
+      image: aamirs/radical_2pm:1.0
+      command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
+    - name: mycentos
+      image: centos
+      command: ["/bin/sleep", "3650d"]
 
 
 
