@@ -10,7 +10,7 @@ https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html
 
 https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html
 
-## Persistent Storage
+## Persistent Storage (Please include Namespace detail in your yaml files while creating your PV/PVC)
 
 https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
 
