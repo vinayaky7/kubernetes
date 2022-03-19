@@ -18,6 +18,10 @@ https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html
 
 https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
 
+## Kubernetes Secrets:-
+
+https://phoenixnap.com/kb/kubernetes-secrets
+
 ## Integrate deployment with Jenkins
 
 Please follow below link to install Amazon EC2 plugin & add below mentioned credentials
