@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: prod
+  labels:
+    app: myapp
+    tier: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: mywebserver
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: mywebserver
+          image: 253277398101.dkr.ecr.us-west-2.amazonaws.com/radical:latest
+          command: [ "/usr/sbin/httpd", "-D", "FOREGROUND"]
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: myecr
+
+
+  selector:
+    matchLabels:
+      app: myapp
