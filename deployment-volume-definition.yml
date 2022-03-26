@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: mywebserver
-        image: aamirs/mywebserverradical_2021:v1.0
+        image: aamirs/radical-private-repo:v1.0
         command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
         volumeMounts:
           - name: efs-pv
             mountPath: "/var/www/html"
       imagePullSecrets:
-      - name: my-docker-radical
+      - name: mydocker
       volumes:
         - name: efs-pv
           persistentVolumeClaim:
