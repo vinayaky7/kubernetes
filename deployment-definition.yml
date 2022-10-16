@@ -16,6 +16,7 @@ spec:
       containers:
         - name: mywebserver
           image: aamirs/radical-weekdays-july-2022:1.0
+          command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
                
   selector:
     matchLabels:
