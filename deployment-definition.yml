@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: mywebserver
-          image: aamirs/radical-july-2022:2.0
+          image: aamirs/radical-weekdays-july-2022:1.0
                
   selector:
     matchLabels:
