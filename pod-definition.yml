@@ -4,7 +4,12 @@ metadata:
   name: apache
   labels:
     app: myapp
+    tier: frontend
+    environment: dev
 spec:
   containers:
     - name: myapache
       image: httpd
+
+
+
