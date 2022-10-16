@@ -15,10 +15,8 @@ spec:
     spec:
       containers:
         - name: mywebserver
-          image: aamirs/myweb:v1.0
-          command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
-         
-          
+          image: aamirs/radical-july-2022:2.0
+               
   selector:
     matchLabels:
       app: myapp
