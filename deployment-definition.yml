@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
         - name: mywebserver
-          image: aamirs/radical-weekdays-july-2022:1.0
+          image: radicaloct2022weekday.jfrog.io/radical-docker-local/radical-private-repo:1.1.1
           command: [ "/usr/sbin/httpd", "-D", "FOREGROUND" ]
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: my-dockerhub-jfrog-secret
                
   selector:
     matchLabels:
